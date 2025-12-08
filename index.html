@@ -7,48 +7,22 @@
 
   <script>
     (function () {
-      // GitHub username
       var GITHUB_USER = "TAGISWILD";
-
-      // Current path on tagiswild.rest (e.g. "/repo-name" or "/repo-name/issues")
       var path = window.location.pathname || "/";
 
-      // Build base GitHub URL
       var target;
       if (path === "/" || path === "") {
-        // If user hits just tagiswild.rest, send to your GitHub profile
         target = "https://github.com/" + GITHUB_USER;
       } else {
-        // Forward the path as-is
         target = "https://github.com/" + GITHUB_USER + path;
       }
 
-      // Preserve query params and hash if present
-      var search = window.location.search || "";
-      var hash = window.location.hash || "";
-      target += search + hash;
-
-      // Perform the redirect
+      target += (window.location.search || "") + (window.location.hash || "");
       window.location.replace(target);
     })();
   </script>
 </head>
 <body>
-  <p>Redirecting you to GitHub… If nothing happens, 
-    <a id="manual-link" href="#">click here</a>.
-  </p>
-
-  <script>
-    // Set manual link href in case JS runs but replace() is blocked
-    (function () {
-      var GITHUB_USER = "TAGISWILD";
-      var path = window.location.pathname || "/";
-      var target = (path === "/" || path === "")
-        ? "https://github.com/" + GITHUB_USER
-        : "https://github.com/" + GITHUB_USER + path;
-      target += (window.location.search || "") + (window.location.hash || "");
-      document.getElementById("manual-link").href = target;
-    })();
-  </script>
+  <p>Redirecting…</p>
 </body>
 </html>
