@@ -1,34 +1,54 @@
-<!DOCTYPE html>
-<html lang="en" >
+<!doctype html>
+<html lang="en">
 <head>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2876380604791121"
-     crossorigin="anonymous"></script>
-  <meta charset="UTF-8">
-  <title>Welcome To Atharva's Space</title>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/javascript"></script>
+  <meta charset="utf-8" />
+  <title>Redirecting…</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-<link rel="stylesheet" href="./style.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+  <script>
+    (function () {
+      // GitHub username
+      var GITHUB_USER = "TAGISWILD";
 
+      // Current path on tagiswild.rest (e.g. "/repo-name" or "/repo-name/issues")
+      var path = window.location.pathname || "/";
+
+      // Build base GitHub URL
+      var target;
+      if (path === "/" || path === "") {
+        // If user hits just tagiswild.rest, send to your GitHub profile
+        target = "https://github.com/" + GITHUB_USER;
+      } else {
+        // Forward the path as-is
+        target = "https://github.com/" + GITHUB_USER + path;
+      }
+
+      // Preserve query params and hash if present
+      var search = window.location.search || "";
+      var hash = window.location.hash || "";
+      target += search + hash;
+
+      // Perform the redirect
+      window.location.replace(target);
+    })();
+  </script>
 </head>
 <body>
-<!-- partial:index.partial.html -->
-<link href='https://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
-<div id='stars'></div>
-<div id='stars2'></div>
-<div id='stars3'></div>
-<div id='title'>
-  <span>
-    MRTAG08's SPACE
-  </span>
-  <br>
-  <span>
-    PLACE WHERE DESTINŸ CHANGES
-  </span>
-</div>
-<!-- partial -->
-  <script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script><script  src="./script.js"></script>
+  <p>Redirecting you to GitHub… If nothing happens, 
+    <a id="manual-link" href="#">click here</a>.
+  </p>
 
+  <script>
+    // Set manual link href in case JS runs but replace() is blocked
+    (function () {
+      var GITHUB_USER = "TAGISWILD";
+      var path = window.location.pathname || "/";
+      var target = (path === "/" || path === "")
+        ? "https://github.com/" + GITHUB_USER
+        : "https://github.com/" + GITHUB_USER + path;
+      target += (window.location.search || "") + (window.location.hash || "");
+      document.getElementById("manual-link").href = target;
+    })();
+  </script>
 </body>
 </html>
